@@ -87,7 +87,7 @@ nav{position:relative;z-index:10;padding:clamp(14px,3vh,26px) clamp(20px,5vw,50p
 <div class="hero">
 
   <video class="bg" id="bgvid" autoplay muted loop playsinline>
-    <source src="https://assets.mixkit.co/videos/50989/50989-720.mp4" type="video/mp4">
+    <source src="https://assets.mixkit.co/videos/42037/42037-720.mp4" type="video/mp4">
   </video>
   <canvas class="bg" id="bgcanvas" style="display:none"></canvas>
 
@@ -162,7 +162,7 @@ var vid = document.getElementById('bgvid');
 var cv  = document.getElementById('bgcanvas');
 
 vid.addEventListener('error', startCanvas);
-vid.addEventListener('canplay', function(){ vid.playbackRate = 0.5; });
+vid.addEventListener('canplay', function(){ vid.playbackRate = 0.6; });
 vid.addEventListener('stalled', function(){ setTimeout(function(){ if(vid.readyState < 2) startCanvas(); }, 3000); });
 setTimeout(function(){ if(vid.readyState < 2) startCanvas(); }, 4000);
 
