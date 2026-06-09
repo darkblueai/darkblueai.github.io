@@ -78,7 +78,7 @@ nav{position:relative;z-index:10;padding:clamp(14px,3vh,26px) clamp(20px,5vw,50p
 .call-carrier{font-size:clamp(11px,1.6vw,14px);font-weight:900;letter-spacing:4px;text-transform:uppercase;min-width:55px}
 .tnm{color:#4caf50}
 .airtel{color:#ff3c3c}
-.call-num{font-size:clamp(24px,4.5vw,38px);font-weight:900;color:white;letter-spacing:2px;line-height:1}
+.call-num{font-size:clamp(18px,3vw,28px);font-weight:900;color:white;letter-spacing:2px;line-height:1;white-space:nowrap}
 
 @keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 </style>
@@ -162,6 +162,7 @@ var vid = document.getElementById('bgvid');
 var cv  = document.getElementById('bgcanvas');
 
 vid.addEventListener('error', startCanvas);
+vid.addEventListener('canplay', function(){ vid.playbackRate = 0.5; });
 vid.addEventListener('stalled', function(){ setTimeout(function(){ if(vid.readyState < 2) startCanvas(); }, 3000); });
 setTimeout(function(){ if(vid.readyState < 2) startCanvas(); }, 4000);
 
@@ -221,7 +222,7 @@ function saveContact(){
   document.body.removeChild(a); URL.revokeObjectURL(u);
 }
 
-function openWA(){ window.open('https://wa.me/265999584831','_blank'); }
+function openWA(){ window.open('https://wa.me/265999584831?text=Hi%20Chisa%20Taxi%2C%20I%20need%20a%20ride!','_blank'); }
 
 function openCallModal(){ document.getElementById('callModal').classList.add('open'); }
 function closeCallModal(){ document.getElementById('callModal').classList.remove('open'); }
