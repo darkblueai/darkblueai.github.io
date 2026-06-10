@@ -213,13 +213,42 @@ function startCanvas(){
 }
 
 function saveContact(){
-  var v=['BEGIN:VCARD','VERSION:3.0','FN:ChisaTaxi-Arthur','N:Arthur;ChisaTaxi;;;','ORG:Chisa Taxi','TEL;TYPE=CELL:+265999584831','TEL;TYPE=WORK:+265891876878','EMAIL:arthurdvn@gmail.com','END:VCARD'].join('\n');
-  var b=new Blob([v],{type:'text/vcard'});
-  var u=URL.createObjectURL(b);
-  var a=document.createElement('a');
-  a.href=u; a.download='ChisaTaxi.vcf';
-  document.body.appendChild(a); a.click();
-  document.body.removeChild(a); URL.revokeObjectURL(u);
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  var isAndroid = /Android/.test(navigator.userAgent);
+  
+  if(isIOS) {
+    // iOS: .vcf dosyası data URI olarak aç
+    var v = [
+      'BEGIN:VCARD','VERSION:3.0',
+      'FN:ChisaTaxi-Arthur',
+      'N:Arthur;ChisaTaxi;;;',
+      'ORG:Chisa Taxi',
+      'TEL;TYPE=CELL:+265999584831',
+      'TEL;TYPE=WORK:+265891876878',
+      'EMAIL:arthurdvn@gmail.com',
+      'END:VCARD'
+    ].join('\r\n');
+    var dataUri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(v);
+    window.location.href = dataUri;
+  } else {
+    // Android + diğer: blob ile indir, sistem rehbere açar
+    var v = [
+      'BEGIN:VCARD','VERSION:3.0',
+      'FN:ChisaTaxi-Arthur',
+      'N:Arthur;ChisaTaxi;;;',
+      'ORG:Chisa Taxi',
+      'TEL;TYPE=CELL:+265999584831',
+      'TEL;TYPE=WORK:+265891876878',
+      'EMAIL:arthurdvn@gmail.com',
+      'END:VCARD'
+    ].join('\r\n');
+    var blob = new Blob([v], {type: 'text/vcard'});
+    var u = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = u; a.download = 'ChisaTaxi.vcf';
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(u);
+  }
 }
 
 function openWA(){ window.open('https://wa.me/265999584831?text=Hi%20Chisa%20Taxi%2C%20I%20need%20a%20ride!','_blank'); }
