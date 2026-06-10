@@ -15,27 +15,28 @@ video.bg,canvas.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:c
 .overlay2{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 55%)}
 
 /* NAV */
-nav{position:relative;z-index:10;flex-shrink:0;padding:clamp(8px,1.8vh,22px) clamp(16px,4vw,48px)}
+nav{display:none}
+
 .brand{display:inline-block;font-size:clamp(18px,3.5vw,44px);font-weight:900;color:#F5C200;letter-spacing:clamp(3px,0.8vw,10px);text-transform:uppercase;background:#000;padding:clamp(3px,0.6vh,8px) clamp(10px,1.8vw,20px);line-height:1.2;white-space:nowrap}
 
 /* CONTENT */
-.content{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(16px,4vw,48px) clamp(16px,3vh,40px);min-height:0}
+.content{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(10px,2vh,28px) clamp(16px,4vw,48px) clamp(12px,2vh,32px);min-height:0;gap:clamp(4px,0.8vh,12px)}
 
-.tagline{display:flex;align-items:center;gap:8px;margin-bottom:clamp(3px,0.6vh,10px);opacity:0;animation:fu 0.8s ease-out 0.1s forwards;flex-shrink:0}
+.tagline{display:flex;align-items:center;gap:8px;opacity:0;animation:fu 0.8s ease-out 0.1s forwards;flex-shrink:0}
 .tagline-dot{width:5px;height:5px;background:#F5C200;border-radius:50%;flex-shrink:0}
 .tagline-text{color:rgba(255,255,255,0.5);font-size:clamp(7px,1vw,11px);font-weight:600;letter-spacing:3px;text-transform:uppercase;white-space:nowrap}
 
-/* HEADING — sığmazsa küçülür */
-.heading{line-height:0.9;margin-bottom:clamp(4px,0.8vh,16px);opacity:0;animation:fu 0.8s ease-out 0.3s forwards;flex-shrink:1}
+
+.heading{line-height:0.9;opacity:0;animation:fu 0.8s ease-out 0.3s forwards;flex-shrink:1}
 .heading div{font-size:clamp(22px,6.5vw,88px);font-weight:900;text-transform:uppercase;letter-spacing:-1px;display:block}
 .h-white{color:white}
 .h-yellow{color:#F5C200}
 
-.subtext{color:rgba(255,255,255,0.5);font-size:clamp(9px,1.2vw,14px);line-height:1.5;max-width:90vw;margin-bottom:clamp(6px,1.2vh,20px);opacity:0;animation:fu 0.8s ease-out 0.5s forwards;flex-shrink:0}
+.subtext{color:rgba(255,255,255,0.5);font-size:clamp(9px,1.2vw,14px);line-height:1.5;max-width:90vw;opacity:0;animation:fu 0.8s ease-out 0.5s forwards;flex-shrink:0}
 .subtext strong{color:white}
 
-/* BUTTONS — wrap olursa her biri full genişlik */
-.cta-row{display:flex;align-items:stretch;gap:clamp(5px,1vw,10px);margin-bottom:clamp(10px,2vh,28px);flex-wrap:wrap;opacity:0;animation:fu 0.8s ease-out 0.7s forwards;flex-shrink:0}
+
+.cta-row{display:flex;align-items:stretch;gap:clamp(5px,1vw,10px);flex-wrap:wrap;opacity:0;animation:fu 0.8s ease-out 0.7s forwards;flex-shrink:0}
 
 .btn-save,.btn-wa,.btn-call{font-size:clamp(7px,0.9vw,11px);font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:clamp(8px,1.4vh,14px) clamp(10px,1.6vw,20px);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;transition:all 0.2s;flex:1 1 auto;min-width:0}
 .btn-save{background:#F5C200;color:#111}
@@ -85,10 +86,10 @@ nav{position:relative;z-index:10;flex-shrink:0;padding:clamp(8px,1.8vh,22px) cla
   <div class="overlay"></div>
   <div class="overlay2"></div>
 
-  <nav><div class="brand">CHISA TAXI</div></nav>
-
   <div class="content">
+    <div class="brand">CHISA TAXI</div>
 
+    <div style="display:flex;flex-direction:column;gap:clamp(4px,0.8vh,12px)">
     <div class="tagline">
       <div class="tagline-dot"></div>
       <span class="tagline-text">Blantyre &amp; Surroundings — 24/7</span>
@@ -142,6 +143,8 @@ nav{position:relative;z-index:10;flex-shrink:0;padding:clamp(8px,1.8vh,22px) cla
       <div class="stat"><div class="stat-val">2<span>+</span></div><div class="stat-label">Active Lines</div></div>
       <div class="stat"><div class="stat-val">Fast<span>.</span></div><div class="stat-label">Pickup Time</div></div>
     </div>
+
+    </div><!-- end bottom -->
 
   </div>
 </div>
