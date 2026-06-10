@@ -138,6 +138,14 @@ nav{position:relative;z-index:10;padding:clamp(10px,2vh,22px) clamp(20px,5vw,50p
 </div>
 
 <script>
+function setVH(){
+  var vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', vh+'px');
+  document.querySelector('.hero').style.height = window.innerHeight+'px';
+}
+setVH();
+window.addEventListener('resize', setVH);
+
 var vid=document.getElementById('bgvid'),cv=document.getElementById('bgcanvas');
 vid.addEventListener('error',startCanvas);
 vid.addEventListener('canplay',function(){vid.playbackRate=0.6;});
